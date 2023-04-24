@@ -1,4 +1,4 @@
-frappe.ui.form.on("Purchase Order Item",{
+frappe.ui.form.on("Purchase Invoice Item",{
     "item_code" : function (frm, cdt, cdn){
     	var d = locals[cdt][cdn];
         	if(d.item_code){
@@ -26,7 +26,7 @@ frappe.ui.form.on("Purchase Order Item",{
 	    }
 });
 
-frappe.ui.form.on("Purchase Order",{
+frappe.ui.form.on("Purchase Invoice",{
 	"onload":function(frm,cdt,cdn){
 		console.log("onload")
 		if(frm.doc.items){

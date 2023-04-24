@@ -27,10 +27,10 @@ app_license = "MIT"
 
 # include js in doctype views
 
+	# "Purchase Order" : "public/js/purchase_order.js"
 doctype_js = {
-	"Sales Order" : "public/js/sales_order.js",
-	"Purchase Order" : "public/js/purchase_order.js"
-}
+	"Purchase Invoice" : "public/js/purchase_invoice.js",
+    "Sales Invoice" : "public/js/sales_invoice.js"}
 
 
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
@@ -116,11 +116,10 @@ fixtures = [
 ]
 
 # doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
+#     "Sales Invoice": {
+#         "after_insert":"last_records.custom_methods.create_si_from_sr"
+# 		#"on_submit": "bulk_document_creation.bulk_document_creation.doctype.bulk_invoice_creation.bulk_invoice_creation.upd_b2c"
+#         },
 # }
 
 # Scheduled Tasks

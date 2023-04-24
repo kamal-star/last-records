@@ -22,11 +22,11 @@ def getPurchaseLastprice(item_code,company):
 		False
 
 @frappe.whitelist(allow_guest=True)
-def getSalesLastprice(item_code,company):
+def getSalesLastprice(item_code,customer,company):
 	last_SINV = frappe.db.sql("""select sinv.name,sinv.customer_name,sinv.posting_date,sitem.item_code,sitem.qty,sitem.rate 
                 from `tabSales Invoice Item` sitem, `tabSales Invoice` sinv where sitem.parent = sinv.name and sitem.item_code = %s 
-                and sinv.docstatus = 1 and sinv.is_return = 0 and 
-		sinv.company = %s order by sinv.creation desc limit 5;""",(item_code,company),as_list = True)
+                and sinv.docstatus = 1 and sinv.is_return = 0 and sinv.customer=%s and
+		sinv.company = %s order by sinv.creation desc limit 5;""",(item_code,customer,company),as_list = True)
 
 	if last_SINV:
 		return last_SINV
